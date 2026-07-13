@@ -4,8 +4,10 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
-    flavor = "balanced";
-    quick-tap-ms = <0>;
+    quick-tap-ms = <100>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+    tapping-term-ms = <170>;
 };
 
 &trackball {
@@ -49,9 +51,31 @@
             key-positions = <20 21>;
         };
 
-        eq {
-            bindings = <&kp EQUAL>;
-            key-positions = <24 25>;
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp ESC>;
+        };
+
+        right_enter {
+            timeout-ms = <100>;
+            key-positions = <27 28>;
+            bindings = <&kp ENTER>;
+        };
+
+        left_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <23 24>;
+        };
+
+        lockscreen {
+            bindings = <&kp LG(LC(Q))>;
+            key-positions = <4 5>;
+        };
+
+        printscreen {
+            bindings = <&kp LG(RS(N5))>;
+            key-positions = <14 15>;
         };
     };
 
@@ -61,6 +85,12 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+        new_line: new_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(E) &kp ENTER>;
+            label = "NEW_LINE";
         };
     };
 
@@ -73,6 +103,12 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+        showscreen: showscreen {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SHOWSCREEN";
+            #binding-cells = <0>;
+            bindings = <&kp LC(UP_ARROW)>, <&kp LG(UP_ARROW)>;
+        };
     };
 
     keymap {
@@ -80,9 +116,9 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y      &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H      &kp J  &kp K      &kp L    &kp SQT
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N      &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp Q             &kp W         &kp E         &kp R                        &kp T        &kp Y      &kp U  &lt 5 I    &kp O    &kp P
+&mt LGUI A       &mt LALT S     &mt LCTRL D   &kp F                        &kp G        &mt RSHFT J  &mt RCTRL K  &mt RALT L  &mt RGUI SEMICOLON    &kp SQT
+&lt 1 Z          &kp X         &kp C         &kp V                        &kp B        &kp COLON    &kp SEMICOLON  &kp N      &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
 &kp LEFT_SHIFT    &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp DELETE     &kp SPACE                             &kp RIGHT_SHIFT
             >;
 
