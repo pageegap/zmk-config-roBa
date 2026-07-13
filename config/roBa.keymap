@@ -111,6 +111,14 @@
             #binding-cells = <0>;
             bindings = <&kp LC(UP_ARROW)>, <&kp LG(UP_ARROW)>;
         };
+        td_bs: td_bs {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            hold-while-undecided;
+            bindings = <&mo>, <&mkp>;
+        };
     };
 
     keymap {
@@ -118,10 +126,10 @@
 
         default_layer {
             bindings = <
-&kp Q           &kp W    &kp E        &kp R      &kp T                                                            &kp Y      &kp U  &lt 5 I    &kp O    &kp P
-&kp A           &kp S    &kp D        &kp F      &kp G          &kp LS(LG(S))                      &kp MINUS      &kp H      &kp J  &kp K      &kp L    &kp SQT
-&lt 1 Z         &kp X    &kp C        &kp V      &kp B          &kp COLON                          &kp SEMICOLON  &kp N      &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
-&kp LEFT_SHIFT  &lt 5 A  &showscreen  &lt 3 TAB  &kp BACKSPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp DELETE     &kp SPACE                             &kp RIGHT_SHIFT
+&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
+&lt 1 Z          &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
+&kp LEFT_SHIFT         &lt 5 A  &showscreen  &td_bs 2 MB1  &kp BACKSPACE  &showscreen      &kp DELETE  &kp SPACE                             &kp RIGHT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
