@@ -86,6 +86,7 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
         new_line: new_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -103,6 +104,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
         showscreen: showscreen {
             compatible = "zmk,behavior-tap-dance";
             label = "SHOWSCREEN";
@@ -116,10 +118,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
-&lt 1 Z          &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
-&kp LEFT_SHIFT         &lt 5 A  &showscreen  &lt 3 TAB    &kp BACKSPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp DELETE  &kp SPACE                             &kp RIGHT_SHIFT
+&kp Q           &kp W    &kp E        &kp R      &kp T                                                            &kp Y      &kp U  &lt 5 I    &kp O    &kp P
+&kp A           &kp S    &kp D        &kp F      &kp G          &kp LS(LG(S))                      &kp MINUS      &kp H      &kp J  &kp K      &kp L    &kp SQT
+&lt 1 Z         &kp X    &kp C        &kp V      &kp B          &kp COLON                          &kp SEMICOLON  &kp N      &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
+&kp LEFT_SHIFT  &lt 5 A  &showscreen  &lt 3 TAB  &kp BACKSPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp DELETE     &kp SPACE                             &kp RIGHT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -127,28 +129,28 @@
 
         Num {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                       &kp F1  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp F5
-&trans  &trans  &kp LC(LS(TAB))  &kp LC(TAB)  &trans  &trans      &trans   &kp F6  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp F10
-&trans  &kp LEFT_GUI  &mkp MB4   &mkp MB1     &mkp MB5  &trans      &trans   &kp N7  &kp N8        &kp N9        &kp NUMBER_0  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans                          &trans
+&trans  &trans        &trans           &trans       &trans                        &kp F1  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
+&trans  &trans        &kp LC(LS(TAB))  &kp LC(TAB)  &trans    &trans      &trans  &kp F6  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
+&trans  &kp LEFT_GUI  &mkp MB4         &mkp MB1     &mkp MB5  &trans      &trans  &kp N7  &kp N8        &kp N9        &kp NUMBER_0  &trans
+&trans  &trans        &trans           &trans       &kp TAB   &trans      &trans  &trans                                            &trans
             >;
         };
 
         Sym {
             bindings = <
-&kp SQT               &kp PERCENT  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH      &kp PIPE         &kp AMPERSAND  &kp ASTERISK  &kp GRAVE      &trans
-&kp DQT               &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE  &trans      &trans  &kp TILDE   &kp EXCLAMATION  &kp EQUAL      &kp PLUS      &kp MINUS
-&kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp DOLLAR   &trans      &trans  &trans    &mkp MB1       &mkp MB2      &kp RIGHT_GUI  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                          &trans                                                             &kp PIPE
+&kp SQT               &kp PERCENT  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH                        &kp PIPE   &kp AMPERSAND    &kp ASTERISK  &kp GRAVE      &trans
+&kp DQT               &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE   &trans      &trans  &kp TILDE  &kp EXCLAMATION  &kp EQUAL     &kp PLUS       &kp MINUS
+&kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp DOLLAR  &trans      &trans  &trans     &mkp MB1         &mkp MB2      &kp RIGHT_GUI  &trans
+&trans                &trans       &trans                &trans                 &trans      &trans      &trans  &trans                                                   &trans
             >;
         };
 
         Nav {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans
+&trans   &trans  &trans  &trans   &trans                      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans
 &kp F12  &kp F7  &kp F8  &kp F10  &trans  &trans      &trans  &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans   &trans  &trans  &trans   &trans  &trans      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
+&trans   &trans  &trans  &trans   &trans  &trans      &trans  &trans                                                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
