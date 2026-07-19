@@ -165,7 +165,7 @@
 &trans   &trans  &trans  &trans   &trans                      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans
 &kp F12  &kp F7  &kp F8  &kp F10  &trans  &trans      &trans  &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT
 &trans   &trans  &trans  &trans   &trans  &trans      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
-&trans   &trans  &trans  &trans   &trans  &trans      &trans  &trans                                                  &trans
+&td_esc_scrl_slow   &trans  &trans  &trans   &trans  &trans      &trans  &trans                                                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
