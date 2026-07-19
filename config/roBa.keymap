@@ -155,7 +155,7 @@
             bindings = <
 &kp SQT               &kp PERCENT  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH                        &kp PIPE   &kp AMPERSAND    &kp ASTERISK  &kp GRAVE      &trans
 &kp DQT               &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE   &trans      &trans  &kp TILDE  &kp EXCLAMATION  &kp EQUAL     &kp PLUS       &kp MINUS
-&kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp DOLLAR  &trans      &trans  &trans     &mkp MB1         &mkp MB2      td_esc_scrl_slow  &trans
+&kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp DOLLAR  &trans      &trans  &trans     &mkp MB1         &mkp MB2      &td_esc_scrl_slow  &trans
 &trans                &trans       &trans                &trans                 &trans      &trans      &trans  &trans                                                   &trans
             >;
         };
