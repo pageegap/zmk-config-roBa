@@ -59,13 +59,13 @@
 
         right_enter {
             timeout-ms = <100>;
-            key-positions = <27 28>;
+            key-positions = <30 29>;
             bindings = <&kp ENTER>;
         };
 
         left_enter {
-            bindings = <&kp ENTER>;
-            key-positions = <23 24>;
+            bindings = <&kp BACKSPACE>;
+            key-positions = <26 25>;
         };
 
         lockscreen {
@@ -75,7 +75,7 @@
 
         printscreen {
             bindings = <&kp LG(RS(N5))>;
-            key-positions = <14 15>;
+            key-positions = <17 14>;
         };
     };
 
@@ -111,6 +111,7 @@
             #binding-cells = <0>;
             bindings = <&kp LC(UP_ARROW)>, <&kp LG(UP_ARROW)>;
         };
+
         td_bs: td_bs {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -126,10 +127,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
-&lt 1 Z          &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
-&kp LEFT_SHIFT         &lt 5 A  &showscreen  &td_bs 2 MB1  &kp BACKSPACE  &showscreen      &kp DELETE  &kp SPACE                             &kp RIGHT_SHIFT
+&kp Q           &kp W    &kp E        &kp R         &kp T                                            &kp Y      &kp U  &lt 5 I    &kp O    &kp P
+&kp A           &kp S    &kp D        &kp F         &kp G          &kp LS(LG(S))      &kp MINUS      &kp H      &kp J  &kp K      &kp L    &kp SQT
+&lt 1 Z         &kp X    &kp C        &kp V         &kp B          &kp COLON          &kp SEMICOLON  &kp N      &kp M  &kp COMMA  &kp DOT  &lt 2 SLASH
+&kp LEFT_SHIFT  &lt 5 A  &showscreen  &td_bs 2 MB1  &kp BACKSPACE  &showscreen        &kp DELETE     &kp SPACE                             &kp RIGHT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
