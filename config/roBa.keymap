@@ -139,7 +139,7 @@
 &kp Q           &kp W       &kp E        &kp R         &kp T                                           &kp Y      &kp U        &lt 5 I      &kp O       &kp P
 &mt LGUI A      &mt LALT S  &mt LCTRL D  &mt LSHFT F   &kp G         &kp CLCK           &kp MINUS      &kp H      &mt RSHFT J  &mt RCTRL K  &mt RALT L  &mt RGUI SEMICOLON
 &lt 1 Z         &kp X       &kp C        &kp V         &kp B         &showscreen        &kp SEMICOLON  &kp N      &kp M        &kp COMMA    &kp DOT     &lt 2 SLASH
-&kp LEFT_SHIFT  &lt 6 A     &showscreen  &td_bs 2 MB1  &td_bs 3 MB1  &kp BACKSPACE      &kp DELETE     &kp SPACE                                        &kp RIGHT_SHIFT
+&kp LEFT_SHIFT  &mo 5       &showscreen  &td_bs 2 MB1  &td_bs 3 MB1  &kp BACKSPACE      &kp DELETE     &kp SPACE                                        &kp RIGHT_SHIFT
             >;
         };
 
@@ -163,10 +163,10 @@
 
         Nav {
             bindings = <
-&trans   &trans  &trans  &trans   &trans                      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans
-&kp F12  &kp F7  &kp F8  &kp F10  &trans  &trans      &trans  &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT
-&trans   &trans  &trans  &trans   &trans  &trans      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
-&lt 5 A  &trans  &trans  &trans   &trans  &trans      &trans  &trans                                                  &trans
+&trans          &trans  &trans  &trans   &trans                      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans
+&kp F12         &kp F7  &kp F8  &kp F10  &trans  &trans      &trans  &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT
+&trans          &trans  &trans  &trans   &trans  &trans      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
+&kp LEFT_SHIFT  &mo 5   &trans  &trans   &trans  &trans      &trans  &trans                                                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
