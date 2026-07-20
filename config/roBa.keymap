@@ -165,8 +165,8 @@
             bindings = <
 &trans          &trans  &trans    &trans    &trans                          &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans
 &kp F12         &kp F7  &kp F8    &kp F10   &trans    &trans        &trans  &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT
-&trans          &mo 5   &mkp MB4  &mkp MB2  &mkp MB1  &mkp MB5      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
-&kp LEFT_SHIFT  &mo 5   &trans    &trans    &trans    &trans        &trans  &trans                                                  &trans
+&mo 5           &trans  &mkp MB4  &mkp MB2  &mkp MB1  &mkp MB5      &trans  &trans  &new_line   &kp HOME         &kp END            &trans
+&kp LEFT_SHIFT  &trans  &trans    &trans    &trans    &trans        &trans  &trans                                                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
