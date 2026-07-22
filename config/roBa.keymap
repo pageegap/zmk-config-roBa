@@ -145,10 +145,10 @@
 
         Num {
             bindings = <
-&trans             &trans        &trans           &trans       &trans                        &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
-&trans             &trans        &kp LC(LS(TAB))  &kp LC(TAB)  &trans    &trans      &trans  &trans  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
-&trans             &kp LEFT_GUI  &mkp MB4         &mkp MB1     &mkp MB5  &trans      &trans  &trans  &kp N7        &kp N8        &kp N9        &kp N0
-&td_esc_scrl_slow  &trans        &trans           &trans       &kp TAB   &trans      &trans  &trans                                            &trans
+&trans  &trans        &trans           &trans       &trans                        &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
+&trans  &trans        &kp LC(LS(TAB))  &kp LC(TAB)  &trans    &trans      &trans  &trans  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
+&trans  &kp LEFT_GUI  &mkp MB4         &mkp MB1     &mkp MB5  &trans      &trans  &trans  &kp N7        &kp N8        &kp N9        &kp N0
+&trans  &trans        &trans           &trans       &kp TAB   &trans      &trans  &trans                                            &trans
             >;
         };
 
@@ -157,7 +157,7 @@
 &kp SQT               &kp PERCENT  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH                        &kp PIPE         &kp AMPERSAND  &kp ASTERISK  &kp GRAVE  &trans
 &kp DQT               &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE   &trans      &trans  &kp EXCLAMATION  &kp EQUAL      &kp PLUS      &kp MINUS  &trans
 &kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp DOLLAR  &trans      &trans  &trans           &mkp MB1       &mkp MB2      &lt 5 A    &trans
-&trans                &trans       &trans                &trans                 &trans      &trans      &trans  &trans                                                   &trans
+&trans                &trans       &trans                &trans                 &trans      &trans      &trans  &kp TAB                                                  &trans
             >;
         };
 
