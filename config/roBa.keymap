@@ -139,9 +139,9 @@
         ht_left: left_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <185>;
+            quick-tap-ms = <180>;
             require-prior-idle-ms = <150>;
             bindings = <&kp>, <&kp>;
 
@@ -154,9 +154,9 @@
         ht_right: right_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <185>;
+            quick-tap-ms = <180>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
 
@@ -175,6 +175,8 @@
 &lt 1 Z          &kp X            &kp C             &kp V             &kp B         &showscreen        &kp CAPSLOCK     &kp N      &kp M              &kp COMMA          &kp DOT           &lt 2 SLASH
 &kp LEFT_SHIFT   &mo 5            &kp CAPSLOCK      &showscreen       &td_bs 3 MB1  &kp BACKSPACE      &kp DELETE       &kp SPACE                                                          &kp RIGHT_SHIFT
             >;
+
+            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
         };
 
         Num {
