@@ -1,0 +1,15 @@
+draw_config:
+  key_w: 56
+  key_h: 56
+  n_columns: 1
+  dark_mode: false
+  footer_text: "roBa / Tempest 34 — generated from the committed ZMK keymap"
+parse_config:
+  raw_binding_map:
+    "&studio_unlock": "Studio Unlock"
+    "&bootloader": "Boot"
+    "&sys_reset": "Reset"
+  zmk_combos:
+    tab: {align: top, offset: 0.4}
+    shift_tab: {align: bottom, offset: 0.4}
+    esc: {align: top, offset: 0.4}
