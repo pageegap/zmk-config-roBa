@@ -77,13 +77,20 @@ jobs:
           cp build/zephyr/zmk.uf2 "${GITHUB_WORKSPACE}/artifacts/${RT34_ARTIFACT}.uf2"
           python3 "${GITHUB_WORKSPACE}/scripts/freeze_dependencies.py" > "${GITHUB_WORKSPACE}/artifacts/resolved-west.yml"
           git -C "${GITHUB_WORKSPACE}" rev-parse HEAD > "${GITHUB_WORKSPACE}/artifacts/config-commit.txt"
+      - name: Collect build diagnostics
+        if: always()
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/artifacts"
+          if [ -f "${RUNNER_TEMP}/rt34-west/build/zephyr/.config" ]; then
+            cp "${RUNNER_TEMP}/rt34-west/build/zephyr/.config" "${GITHUB_WORKSPACE}/artifacts/zephyr.config"
+          fi
+          if [ -f "${RUNNER_TEMP}/rt34-west/build/zephyr/zephyr.dts" ]; then
+            cp "${RUNNER_TEMP}/rt34-west/build/zephyr/zephyr.dts" "${GITHUB_WORKSPACE}/artifacts/zephyr.dts"
+          fi
       - name: Upload firmware and build diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact-name }}
           if-no-files-found: warn
-          path: |
-            artifacts/
-            ${{ runner.temp }}/rt34-west/build/zephyr/.config
-            ${{ runner.temp }}/rt34-west/build/zephyr/zephyr.dts
+          path: artifacts/
