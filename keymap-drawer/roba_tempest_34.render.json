@@ -1,0 +1,34 @@
+{
+  "generator": "keymap-drawer",
+  "version": "0.23.0",
+  "layers": [
+    "BASE",
+    "NUM",
+    "SYM",
+    "NAV",
+    "MOUSE",
+    "SCROLL",
+    "SYS"
+  ],
+  "keys_per_layer": 34,
+  "combos": 3,
+  "outputs": [
+    "roba_tempest_34.yaml",
+    "roba_tempest_34.svg",
+    "roba_tempest_34-BASE.svg",
+    "roba_tempest_34-NUM.svg",
+    "roba_tempest_34-SYM.svg",
+    "roba_tempest_34-NAV.svg",
+    "roba_tempest_34-MOUSE.svg",
+    "roba_tempest_34-SCROLL.svg",
+    "roba_tempest_34-SYS.svg"
+  ],
+  "source_sha256": {
+    "config/roba_tempest_34.keymap": "b4e4371e82390139a244f652cda192106fd04b335f149278beb6be25c2370d12",
+    "boards/shields/roba_tempest_34/roba_tempest_34-layout.dtsi": "d940bd67a92089463e3a7232831ef75e534cd30a7560c0246e15d615a512841b",
+    "keymap_drawer.config.yaml": "a237573d6eb95faf3afd84039c17cd54a4643f4c8785868eabd4ac78fa3ff910",
+    "hardware/layout-points.json": "91ff13c1297db2101f7ed3a5443d97402792dff6da1fd2102d23f397c91944d9",
+    "scripts/draw_keymap.py": "7c4a666c02dbabd047de5e24a78da4a3356c7e33101234f1c535ed7813409c01",
+    "requirements-draw.txt": "2f2a05db7557f2dcf8e2cac4f3fd4e19eec1aea3905041fcc5f4b7076f0a7e8c"
+  }
+}
