@@ -35,7 +35,7 @@ def write_svg(source, destination):
 
 run(['python3', 'scripts/generate_layout.py', '--check'])
 parsed = yaml.safe_load(run(['keymap', '-c', str(CONFIG), 'parse', '-z', str(KEYMAP)]))
-assert isinstance(parsed.get('layers'), dict) and parsed['layers'], 'No layers parsed'
+assert list(parsed.get('layers', {})) == ['BASE', 'NUM', 'SYM', 'NAV', 'MOUSE', 'SCROLL', 'SYS'], 'Unexpected README layer names'
 for layer, keys in parsed['layers'].items():
     parsed['layers'][layer] = flatten(keys)
     assert len(parsed['layers'][layer]) == 34, f'{layer}: expected 34 keys'
@@ -53,13 +53,8 @@ with tempfile.TemporaryDirectory(prefix='rt34-drawer-') as temporary:
     for layer, keys in parsed['layers'].items():
         assert layer.replace('_', '').isalnum(), 'Layer name must be safe for an output filename'
         single = {'layout': parsed['layout'], 'layers': {layer: keys}, 'combos': []}
-        for combo in parsed.get('combos', []):
-            active = combo.get('l', combo.get('layers', []))
-            if not active or layer in active:
-                selected = dict(combo)
-                selected.pop('l', None)
-                selected['layers'] = [layer]
-                single['combos'].append(selected)
+        # Individual README layer views stay uncluttered. The combined drawing
+        # retains every combo in separate panels via the drawing configuration.
         source = Path(temporary) / f'{layer}.yaml'
         source.write_text(yaml.safe_dump(single, sort_keys=False, allow_unicode=True))
         filename = f'{STEM}-{layer}.svg'

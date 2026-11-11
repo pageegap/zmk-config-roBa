@@ -2,6 +2,7 @@ draw_config:
   key_w: 56
   key_h: 56
   n_columns: 1
+  separate_combo_diagrams: true
   dark_mode: false
   footer_text: "roBa / Tempest 34 — generated from the committed ZMK keymap"
 parse_config:
