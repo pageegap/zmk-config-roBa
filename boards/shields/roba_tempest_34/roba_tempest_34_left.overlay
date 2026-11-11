@@ -1,0 +1,2 @@
+#include "roba_tempest_34.dtsi"
+// The left half is the peripheral. A trackball snippet enables input forwarding.

@@ -1,0 +1,12 @@
+if SHIELD_ROBA_TEMPEST_34_LEFT || SHIELD_ROBA_TEMPEST_34_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "roBa Tempest 34"
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y if SHIELD_ROBA_TEMPEST_34_RIGHT
+
+endif

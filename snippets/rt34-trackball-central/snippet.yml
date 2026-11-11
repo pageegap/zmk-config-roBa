@@ -1,0 +1,4 @@
+name: rt34-trackball-central
+append:
+  EXTRA_DTC_OVERLAY_FILE: rt34-trackball-central.overlay
+  EXTRA_CONF_FILE: rt34-trackball-central.conf

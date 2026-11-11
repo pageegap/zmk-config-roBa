@@ -1,27 +1,20 @@
-# This file generates the GitHub Actions matrix.
-# For simple board + shield combinations, add them to the top level board and
-# shield arrays, for more control, add individual board + shield combinations
-# to the `include` property. You can also use the `cmake-args` property to
-# pass flags to the build command and `artifact-name` to assign a name to
-# distinguish build outputs from each other:
-#
-# board: [ "nice_nano_v2" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano_v2
-#     shield: reviung41
-#   - board: nice_nano_v2
-#     shield: corne_left
-#     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-#     artifact-name: corne_left_with_logging
-#
----
+# Four images cover right-only, left-only, dual-trackball and no-trackball pairs.
 include:
- - board: seeeduino_xiao_ble
-   shield: roBa_R
-   snippet: studio-rpc-usb-uart
- - board: seeeduino_xiao_ble
-   shield: roBa_L
- - board: seeeduino_xiao_ble
-   shield: settings_reset
+  - board: seeeduino_xiao_ble
+    shield: roba_tempest_34_right
+    snippet: studio-rpc-usb-uart;rt34-trackball-central
+    artifact-name: rt34-right-trackball
+  - board: seeeduino_xiao_ble
+    shield: roba_tempest_34_right
+    snippet: studio-rpc-usb-uart
+    artifact-name: rt34-right-keyboard
+  - board: seeeduino_xiao_ble
+    shield: roba_tempest_34_left
+    snippet: rt34-trackball-peripheral
+    artifact-name: rt34-left-trackball
+  - board: seeeduino_xiao_ble
+    shield: roba_tempest_34_left
+    artifact-name: rt34-left-keyboard
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: rt34-settings-reset

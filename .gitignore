@@ -1,0 +1,4 @@
+.sandbox/
+artifacts/
+__pycache__/
+*.pyc

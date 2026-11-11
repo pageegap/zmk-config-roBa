@@ -1,0 +1,37 @@
+--- a/src/pmw3610.c
++++ b/src/pmw3610.c
+@@ -573,6 +573,10 @@
+ 
+ int ball_action_idx = -1;
+ static enum pixart_input_mode get_input_mode_for_current_layer(const struct device *dev) {
++#if IS_ENABLED(CONFIG_ZMK_SPLIT) && !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
++    // Peripherals forward raw motion; the central owns the keymap and layers.
++    return MOVE;
++#else
+     const struct pixart_config *config = dev->config;
+     uint8_t curr_layer = zmk_keymap_highest_layer_active();
+     ball_action_idx = -1;
+@@ -595,6 +599,7 @@
+         }
+     }
+     return MOVE;
++#endif
+ }
+ 
+ static int pmw3610_report_data(const struct device *dev) {
+@@ -746,6 +751,7 @@
+                 data->scroll_delta_y = 0;
+             }
+         } else if (input_mode == BALL_ACTION) {
++#if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+             data->ball_action_delta_x += x;
+             data->ball_action_delta_y += y;
+ 
+@@ -781,6 +787,7 @@
+                     data->ball_action_delta_y = 0;
+                 }
+             }
++#endif
+         }
+     }
+ 

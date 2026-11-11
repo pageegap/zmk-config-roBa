@@ -1,0 +1,90 @@
+{
+  "gpio": {
+    "D0": {
+      "port": 0,
+      "pin": 2,
+      "net": "MOTION"
+    },
+    "D1": {
+      "port": 0,
+      "pin": 3,
+      "net": "row_top"
+    },
+    "D2": {
+      "port": 0,
+      "pin": 28,
+      "net": "row_home"
+    },
+    "D3": {
+      "port": 0,
+      "pin": 29,
+      "net": "row_bottom"
+    },
+    "D4": {
+      "port": 0,
+      "pin": 4,
+      "net": "SDIO"
+    },
+    "D5": {
+      "port": 0,
+      "pin": 5,
+      "net": "SCLK"
+    },
+    "D6": {
+      "port": 1,
+      "pin": 11,
+      "net": "row_thumb"
+    },
+    "D7": {
+      "port": 1,
+      "pin": 12,
+      "net": "col_index"
+    },
+    "D8": {
+      "port": 1,
+      "pin": 13,
+      "net": "col_middle"
+    },
+    "D9": {
+      "port": 1,
+      "pin": 14,
+      "net": "col_ring"
+    },
+    "D10": {
+      "port": 1,
+      "pin": 15,
+      "net": "col_pinky"
+    },
+    "D11": {
+      "port": 0,
+      "pin": 15,
+      "net": "col_inner"
+    },
+    "D12": {
+      "port": 0,
+      "pin": 19,
+      "net": "CS"
+    }
+  },
+  "diode_direction": "COL2ROW",
+  "sensor_connector": {
+    "1": "SCLK",
+    "2": "CS",
+    "3": "GND",
+    "4": "3V3",
+    "5": "NC_SENSOR",
+    "6": "SDIO",
+    "7": "MOTION"
+  },
+  "reset_connector": {
+    "1": "RST",
+    "2": "GND"
+  },
+  "battery_monitor": {
+    "adc_pin": "P0.31",
+    "enable_pin": "P0.14",
+    "output_ohms": 499000,
+    "full_ohms": 1499000,
+    "source": "Official Seeed Plus schematic: R16=1M, R17=499k; P0.14 open-drain sink enable"
+  }
+}

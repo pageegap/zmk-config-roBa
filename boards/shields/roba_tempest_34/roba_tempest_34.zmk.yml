@@ -1,0 +1,8 @@
+file_format: "1"
+id: roba_tempest_34
+name: roBa Tempest 34 (XIAO Plus)
+type: shield
+url: https://github.com/pageegap/zmk-config-roBa
+requires: [seeeduino_xiao_ble]
+features: [keys, pointer, studio]
+siblings: [roba_tempest_34_left, roba_tempest_34_right]

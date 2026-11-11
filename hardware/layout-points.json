@@ -1,0 +1,121 @@
+{
+  "matrix_pinky_bottom": {
+    "x": 190,
+    "y": -94.9,
+    "r": -8,
+    "row": "row_bottom",
+    "column": "col_pinky"
+  },
+  "matrix_pinky_home": {
+    "x": 192.3659427,
+    "y": -78.0654428,
+    "r": -8,
+    "row": "row_home",
+    "column": "col_pinky"
+  },
+  "matrix_pinky_top": {
+    "x": 194.7318854,
+    "y": -61.2308856,
+    "r": -8,
+    "row": "row_top",
+    "column": "col_pinky"
+  },
+  "matrix_ring_bottom": {
+    "x": 172.5081207,
+    "y": -86.4332026,
+    "r": -4,
+    "row": "row_bottom",
+    "column": "col_ring"
+  },
+  "matrix_ring_home": {
+    "x": 173.69398080000002,
+    "y": -69.4746137,
+    "r": -4,
+    "row": "row_home",
+    "column": "col_ring"
+  },
+  "matrix_ring_top": {
+    "x": 174.87984090000003,
+    "y": -52.51602480000001,
+    "r": -4,
+    "row": "row_top",
+    "column": "col_ring"
+  },
+  "matrix_middle_bottom": {
+    "x": 154.3496508,
+    "y": -80.9030607,
+    "r": 0,
+    "row": "row_bottom",
+    "column": "col_middle"
+  },
+  "matrix_middle_home": {
+    "x": 154.3496508,
+    "y": -63.9030607,
+    "r": 0,
+    "row": "row_home",
+    "column": "col_middle"
+  },
+  "matrix_middle_top": {
+    "x": 154.3496508,
+    "y": -46.9030607,
+    "r": 0,
+    "row": "row_top",
+    "column": "col_middle"
+  },
+  "matrix_index_bottom": {
+    "x": 136.3496507,
+    "y": -84.3030607,
+    "r": 0,
+    "row": "row_bottom",
+    "column": "col_index"
+  },
+  "matrix_index_home": {
+    "x": 136.3496507,
+    "y": -67.3030607,
+    "r": 0,
+    "row": "row_home",
+    "column": "col_index"
+  },
+  "matrix_index_top": {
+    "x": 136.3496507,
+    "y": -50.3030607,
+    "r": 0,
+    "row": "row_top",
+    "column": "col_index"
+  },
+  "matrix_inner_bottom": {
+    "x": 118.3496508,
+    "y": -86.8530607,
+    "r": 0,
+    "row": "row_bottom",
+    "column": "col_inner"
+  },
+  "matrix_inner_home": {
+    "x": 118.3496508,
+    "y": -69.8530607,
+    "r": 0,
+    "row": "row_home",
+    "column": "col_inner"
+  },
+  "matrix_inner_top": {
+    "x": 118.3496508,
+    "y": -52.8530607,
+    "r": 0,
+    "row": "row_top",
+    "column": "col_inner"
+  },
+  "thumb_mid": {
+    "x": 109.25635640000002,
+    "y": -108.1720626,
+    "r": 15,
+    "row": "row_thumb",
+    "column": "col_index"
+  },
+  "thumb_far": {
+    "x": 90.71875720000003,
+    "y": -115.8505876,
+    "r": 30,
+    "row": "row_thumb",
+    "column": "col_inner"
+  }
+}

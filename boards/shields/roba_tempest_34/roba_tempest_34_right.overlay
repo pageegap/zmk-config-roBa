@@ -1,0 +1,18 @@
+#include "roba_tempest_34.dtsi"
+#include <input/processors.dtsi>
+
+&rt34_transform { col-offset = <5>; };
+&zip_temp_layer { excluded-positions = <21 22 23 24 25 26 27 28>; };
+
+// A proxy is present even in the right-keyboard build so a left trackball works.
+&trackball_split { status = "okay"; };
+
+&trackball_listener {
+    input-processors = <&zip_temp_layer 4 700>;
+    scroll { layers = <5>; input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 12>; };
+};
+&remote_trackball_listener {
+    status = "okay";
+    input-processors = <&zip_temp_layer 4 700>;
+    scroll { layers = <5>; input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 12>; };
+};

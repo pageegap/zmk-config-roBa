@@ -1,5 +1,89 @@
+name: Build roBa Tempest 34
 on: [push, pull_request, workflow_dispatch]
-
+permissions:
+  contents: read
+concurrency:
+  group: rt34-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check hardware mapping and layout
+        run: python3 scripts/check_config.py
+      - name: Read build variants
+        id: matrix
+        run: |
+          python3 -m pip install PyYAML==6.0.2
+          python3 - <<'PYTHON'
+          import json, os, yaml
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('matrix=' + json.dumps(yaml.safe_load(open('build.yaml'))) + '\n')
+          PYTHON
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3-branch
+    needs: validate
+    runs-on: ubuntu-22.04
+    container: zmkfirmware/zmk-build-arm:3.5
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.validate.outputs.matrix) }}
+    name: ${{ matrix.artifact-name }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare isolated West workspace
+        run: |
+          mkdir -p "${RUNNER_TEMP}/rt34-west"
+          cp -R "${GITHUB_WORKSPACE}/config" "${RUNNER_TEMP}/rt34-west/config"
+          cd "${RUNNER_TEMP}/rt34-west"
+          west init -l config
+          west update --fetch-opt=--filter=tree:0
+          west zephyr-export
+      - name: Apply pinned PMW3610 peripheral compatibility patch
+        working-directory: ${{ runner.temp }}/rt34-west/zmk-pmw3610-driver
+        run: |
+          test "$(git rev-parse HEAD)" = 5e04553ab803d24405bd45621a41310ea3050e59
+          git apply --check "${GITHUB_WORKSPACE}/patches/pmw3610-peripheral.patch"
+          git apply "${GITHUB_WORKSPACE}/patches/pmw3610-peripheral.patch"
+      - name: Build firmware
+        working-directory: ${{ runner.temp }}/rt34-west
+        env:
+          RT34_BOARD: ${{ matrix.board }}
+          RT34_SHIELD: ${{ matrix.shield }}
+          RT34_SNIPPETS: ${{ matrix.snippet }}
+        run: |
+          if [ -n "$RT34_SNIPPETS" ]; then
+            west build -s zmk/app -d build -b "$RT34_BOARD" -S "$RT34_SNIPPETS" -- \
+              -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" \
+              -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}" \
+              -DSNIPPET_ROOT="${GITHUB_WORKSPACE}" -DSHIELD="$RT34_SHIELD"
+          else
+            west build -s zmk/app -d build -b "$RT34_BOARD" -- \
+              -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" \
+              -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}" \
+              -DSNIPPET_ROOT="${GITHUB_WORKSPACE}" -DSHIELD="$RT34_SHIELD"
+          fi
+      - name: Audit compiled hardware configuration
+        if: matrix.shield != 'settings_reset'
+        run: python3 scripts/check_build.py "${RUNNER_TEMP}/rt34-west" "${{ matrix.shield }}" "${{ matrix.artifact-name }}"
+      - name: Package UF2 and resolved dependencies
+        working-directory: ${{ runner.temp }}/rt34-west
+        env:
+          RT34_ARTIFACT: ${{ matrix.artifact-name }}
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/artifacts"
+          cp build/zephyr/zmk.uf2 "${GITHUB_WORKSPACE}/artifacts/${RT34_ARTIFACT}.uf2"
+          west manifest --freeze > "${GITHUB_WORKSPACE}/artifacts/resolved-west.yml"
+          git -C "${GITHUB_WORKSPACE}" rev-parse HEAD > "${GITHUB_WORKSPACE}/artifacts/config-commit.txt"
+      - name: Upload firmware and build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact-name }}
+          if-no-files-found: warn
+          path: |
+            artifacts/
+            ${{ runner.temp }}/rt34-west/build/zephyr/.config
+            ${{ runner.temp }}/rt34-west/build/zephyr/zephyr.dts
