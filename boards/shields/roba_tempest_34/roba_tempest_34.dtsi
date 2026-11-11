@@ -101,6 +101,6 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         // Layer-dependent processing is performed centrally for BOTH sensors.
-        automouse-layer = <(-1)>;
+        automouse-layer = <0>; // Zero disables the driver's preprocessor-gated automouse code.
     };
 };

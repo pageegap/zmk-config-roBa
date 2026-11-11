@@ -43,7 +43,7 @@ assert (sensor.status=='okay')==trackball
 assert (config.get('CONFIG_PMW3610')=='y')==trackball
 assert gpio(spi.props['cs-gpios'].val[0])==pin('CS')
 assert gpio(sensor.props['irq-gpios'].val[0])==pin('MOTION')
-assert sensor.props['automouse-layer'].val in [-1,4294967295]
+assert sensor.props['automouse-layer'].val==0
 if central:
     assert config.get('CONFIG_ZMK_STUDIO')=='y' and config.get('CONFIG_ZMK_STUDIO_LOCKING')=='y'
     assert split.status=='okay'
