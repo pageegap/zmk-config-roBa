@@ -1,0 +1,4 @@
+// The recovery image also runs on the Plus and uses internal flash only.
+&qspi { status = "disabled"; };
+&gd25q16 { status = "disabled"; };
+&p25q16h { status = "disabled"; };

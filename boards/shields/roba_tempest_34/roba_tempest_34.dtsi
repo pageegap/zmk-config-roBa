@@ -69,6 +69,8 @@
 // Internal MCU flash stores firmware/settings. External flash is unused;
 // avoid inheriting a particular non-Plus flash chip's JEDEC assumptions.
 &qspi { status = "disabled"; };
+&gd25q16 { status = "disabled"; };
+&p25q16h { status = "disabled"; };
 
 &pinctrl {
     rt34_spi_default: rt34_spi_default {

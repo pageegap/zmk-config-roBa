@@ -74,6 +74,7 @@ jobs:
           RT34_ARTIFACT: ${{ matrix.artifact-name }}
         run: |
           mkdir -p "${GITHUB_WORKSPACE}/artifacts"
+          python3 "${GITHUB_WORKSPACE}/scripts/check_uf2.py" build/zephyr/zmk.uf2 > "${GITHUB_WORKSPACE}/artifacts/uf2-checks.json"
           cp build/zephyr/zmk.uf2 "${GITHUB_WORKSPACE}/artifacts/${RT34_ARTIFACT}.uf2"
           python3 "${GITHUB_WORKSPACE}/scripts/freeze_dependencies.py" > "${GITHUB_WORKSPACE}/artifacts/resolved-west.yml"
           printf '%s\n' "$GITHUB_SHA" > "${GITHUB_WORKSPACE}/artifacts/config-commit.txt"

@@ -31,7 +31,8 @@ assert config.get('CONFIG_ZMK_SPLIT')=='y'
 assert config.get('CONFIG_ZMK_BATTERY_REPORTING')=='y'
 assert config.get('CONFIG_EC11')!='y'
 assert config.get('CONFIG_NFCT_PINS_AS_GPIOS')!='y'
-assert edt.label2node['qspi'].status=='disabled'
+assert all(edt.label2node[n].status=='disabled' for n in ['qspi','gd25q16','p25q16h'])
+assert config.get('CONFIG_NORDIC_QSPI_NOR')!='y' and config.get('CONFIG_NRFX_QSPI')!='y'
 assert edt.label2node['i2c0'].status=='disabled'
 assert edt.label2node['spi2'].status=='disabled'
 vbatt=edt.label2node['vbatt']

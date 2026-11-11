@@ -6,7 +6,7 @@ The original `roBa` shield and personal keymap remain available in their origina
 
 ## Build and choose firmware
 
-Push this branch or run **Build roBa Tempest 34** from GitHub Actions. Builds run on isolated GitHub-hosted runners using the ZMK 3.5 build container. No local Docker/Rancher installation is needed. Each artifact contains its UF2, resolved dependency manifest, commit identifier, and generated Kconfig/devicetree diagnostics. Successful keyboard builds also contain `configuration-checks.json`.
+Push this branch or run **Build roBa Tempest 34** from GitHub Actions. Builds run on isolated GitHub-hosted runners using the ZMK 3.5 build container. No local Docker/Rancher installation is needed. Each artifact contains its UF2, resolved dependency manifest, commit identifier, UF2 structure/flash-bound checks, and generated Kconfig/devicetree diagnostics. Successful keyboard builds also contain `configuration-checks.json`.
 
 | Hardware | Right half image | Left half image |
 |---|---|---|
@@ -24,7 +24,7 @@ Flash a trackball image only on a half with a sensor installed. The central acce
 - Sensor: SCK=D5/P0.05, shared MOSI/MISO SDIO=D4/P0.04, **CS=D12/P0.19**, MOTION=D0/P0.02. The original roBa three-wire driver protocol is retained.
 - NFC pins P0.09/P0.10 remain unused. No encoder driver/nodes are enabled.
 - Plus battery sensing: ADC AIN7/P0.31 with P0.14 open-drain, active-low enable. Official Plus schematic R16=1 MΩ, R17=499 kΩ gives `output-ohms=499000`, `full-ohms=1499000`, overriding the base board's 510 kΩ divider.
-- The existing `seeeduino_xiao_ble` target supplies nRF52840, stock XIAO UF2 partitioning, USB and BLE. External QSPI flash is unused and disabled; firmware/settings use internal flash. UART, I2C0 and SPI2 are disabled to avoid matrix/sensor pin conflicts.
+- The existing `seeeduino_xiao_ble` target supplies nRF52840, stock XIAO UF2 partitioning, USB and BLE. External QSPI flash and both inherited flash-chip nodes are unused and disabled, including in recovery; firmware/settings use internal flash. UART, I2C0 and SPI2 are disabled to avoid matrix/sensor pin conflicts.
 - External reset is a hardware connection and requires no special firmware behavior. Battery-negative switching remains hardware controlled.
 
 ## Keymap and pointing
