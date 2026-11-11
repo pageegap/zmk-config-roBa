@@ -76,7 +76,7 @@ jobs:
           mkdir -p "${GITHUB_WORKSPACE}/artifacts"
           cp build/zephyr/zmk.uf2 "${GITHUB_WORKSPACE}/artifacts/${RT34_ARTIFACT}.uf2"
           python3 "${GITHUB_WORKSPACE}/scripts/freeze_dependencies.py" > "${GITHUB_WORKSPACE}/artifacts/resolved-west.yml"
-          git -C "${GITHUB_WORKSPACE}" rev-parse HEAD > "${GITHUB_WORKSPACE}/artifacts/config-commit.txt"
+          printf '%s\n' "$GITHUB_SHA" > "${GITHUB_WORKSPACE}/artifacts/config-commit.txt"
       - name: Collect build diagnostics
         if: always()
         run: |
