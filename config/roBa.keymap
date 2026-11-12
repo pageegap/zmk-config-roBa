@@ -35,11 +35,6 @@
     combos {
         compatible = "zmk,combos";
 
-        show_windows {
-            bindings = <&kp LC(UP_ARROW)>;
-            key-positions = <2 3>;
-        };
-
         shift_tab {
             bindings = <&kp LS(TAB)>;
             key-positions = <12 13>;
