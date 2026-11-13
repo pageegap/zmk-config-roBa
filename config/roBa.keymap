@@ -57,7 +57,7 @@
             bindings = <&kp ENTER>;
         };
 
-        show_apps {
+        show_windows {
             bindings = <&kp LC(UP_ARROW)>;
             key-positions = <25 24>;
         };
