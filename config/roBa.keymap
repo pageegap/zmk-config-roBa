@@ -35,13 +35,13 @@
     combos {
         compatible = "zmk,combos";
 
-        shift_tab {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <12 13>;
+        middle_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <18 19>;
         };
 
         muhennkann {
-            bindings = <&to_layer_0 INT_MUHENKAN>;
+            bindings = <&kp TAB>;
             key-positions = <11 10>;
         };
 
@@ -58,7 +58,7 @@
         };
 
         show_apps {
-            bindings = <&kp LG(UP_ARROW)>;
+            bindings = <&kp LC(UP_ARROW)>;
             key-positions = <25 24>;
         };
 
@@ -70,6 +70,12 @@
         printscreen {
             bindings = <&kp LG(RS(N5))>;
             key-positions = <17 14>;
+        };
+
+        show_apps {
+            bindings = <&kp LG(UP_ARROW)>;
+            key-positions = <24 25>;
+            layers = <6>;
         };
     };
 
